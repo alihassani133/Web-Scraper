@@ -21,7 +21,10 @@ namespace WebScraper.Operations
 
         public void GetLaboratoriesInformation(List<string> pageLinks)
         {
-            HtmlWeb web = new();
+            HtmlWeb web = new()
+            {
+                AutoDetectEncoding = true
+            };
             int maxRetries = 3;
             Parallel.For(0, pageLinks.Count, i =>
             {
